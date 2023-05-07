@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>Entropy/IP report: ../generated_ipv6_addresses</title>
+<style type="text/css">
+ol { margin: 0; }
+h2 { cursor: pointer; font-size: 16px; color: blue; }
+h2:hover { text-decoration: underline; }
+textarea { font-family: courier; font-size: 14px; }
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" media="all" href="../css/bnbrowser.css" />
+<link rel="stylesheet" type="text/css" media="all" href="../css/colors-jet.css" />
+<link rel="stylesheet" type="text/css" media="all" href="../css/vis.min.css" />
+</head>
+<body>
+<h1 align="center">Entropy/IP report: ../generated_ipv6_addresses</h1>
+<h2 align="center">Entropy vs. ACR</h2>
+<center><img src="segments.png" /></center>
+<h2 align="center">Segment Mining</h2>
+<center>
+<pre style="font-size:14px; display: inline-block; text-align: left">
+<ol style='display:none'>
+</ol>
+<b style='color:#c00'>A: bits 0-32 (hex chars  1- 8)</b><ol><li>  20011248                            28.92%</li><li>  20011291                            18.40%</li><li>  200112f0                            12.66%</li><li>  200112e0                             9.63%</li><li>  200112d0                             5.52%</li><li>  20011218                             4.92%</li><li>  20011284                             4.27%</li><li>  2001129c                             3.21%</li><li>  200112e8                             2.89%</li><li>  20011278                             2.51%</li><li>  20011260                             2.40%</li><li><i style='color:#080'>* 20011201-200112ff                    4.67%</i></li></ol>
+<b style='color:#c00'>B: bits 32-48 (hex chars  9-12)</b><ol><li>  0000                                13.29%</li><li>  0803                                 7.30%</li><li>  1002                                 4.01%</li><li>  0800                                 3.09%</li><li>  ffff                                 3.00%</li><li>  2000                                 2.24%</li><li>  0601                                 2.07%</li><li>  0600                                 2.01%</li><li>  0001                                 1.88%</li><li>  0003                                 1.54%</li><li><i style='color:#080'>* 1600-1605                            1.41%</i></li><li><i style='color:#080'>* 0002-fff0                           58.16%</i></li></ol>
+<b style='color:#c00'>C: bits 48-56 (hex chars 13-14)</b><ol><li>  00                                  58.24%</li><li>  f0                                  21.12%</li><li>  01                                   4.75%</li><li>  02                                   4.74%</li><li>  ff                                   3.92%</li><li>  03                                   1.65%</li><li>  a9                                   0.96%</li><li>  27                                   0.73%</li><li>  b3                                   0.44%</li><li><i style='color:#080'>* 04-fe                                3.45%</i></li></ol>
+<b style='color:#c00'>D: bits 56-64 (hex chars 15-16)</b><ol><li>  00                                  29.35%</li><li>  01                                   5.27%</li><li>  34                                   2.22%</li><li>  02                                   1.99%</li><li>  e0                                   1.85%</li><li>  ff                                   1.73%</li><li>  05                                   1.40%</li><li>  06                                   1.35%</li><li>  03                                   1.29%</li><li>  07                                   1.16%</li><li><i style='color:#080'>* 04-4b                               36.46%</i></li><li><i style='color:#080'>* 4c-fe                               15.93%</i></li></ol>
+<b style='color:#c00'>E: bits 64-120 (hex chars 17-30)</b><ol><li>  00000000000000                      58.23%</li><li>  00000000000001                       6.54%</li><li>  00000000000002                       2.61%</li><li>  00000000000003                       0.72%</li><li>  faceb00c33330a                       0.68%</li><li>  faceb00c000000                       0.67%</li><li>  faceb00c333370                       0.39%</li><li>  faceb00c000035                       0.38%</li><li>  00000000000100                       0.33%</li><li>  faceb00c33331b                       0.31%</li><li><i style='color:#080'>* 00000000000005-00000000006300        3.53%</i></li><li><i style='color:#080'>* 00000092010400-00000092018200        0.64%</i></li><li><i style='color:#080'>* 00000092020800-00000092024800        0.34%</i></li><li><i style='color:#080'>* 00000093011200-00000093012800        0.13%</i></li><li><i style='color:#080'>* 00000093014000-00000093017800        0.37%</i></li><li><i style='color:#080'>* 050ec172c3d260-fdf170fa0bee40       21.11%</i></li><li><i style='color:#080'>* 00000000008700-ffffffffffff00        3.02%</i></li></ol>
+<b style='color:#c00'>F: bits 120-128 (hex chars 31-32)</b><ol><li>  01                                  25.53%</li><li>  0a                                  15.09%</li><li>  0b                                   7.99%</li><li>  02                                   6.04%</li><li>  7f                                   3.89%</li><li>  05                                   1.62%</li><li>  04                                   1.48%</li><li>  06                                   1.27%</li><li>  03                                   1.13%</li><li>  0d                                   1.05%</li><li><i style='color:#080'>* 14-b2                               22.46%</i></li><li><i style='color:#080'>* 00-ff                               12.45%</i></li></ol>
+</pre>
+</center>
+<h2 align="center">Bayesian Network Structure</h2>
+<center>
+<div id="bnviz"></div>
+</center>
+
+<h2 align="center">Conditional Probability Browser</h2>
+<center>
+<div id="bnbrowser" style="width: 1000px">
+<table class="bnb-main">
+<tr class="bnb-vars"></tr>
+<tr class="bnb-vdsc"></tr>
+<tr class="bnb-vals"></tr>
+</table>
+<div class="bnb-status">Loading...</div>
+<form>
+<textarea class="bnb-ips" name="ips"></textarea>
+</form>
+</div>
+</center>
+
+<script type="text/javascript" src="vals.js"></script>
+<script type="text/javascript" src="cpd.js"></script>
+<script type="text/javascript" src="../js/jquery-2.2.0.min.js"></script>
+<script type="text/javascript" src="../js/json2.js"></script>
+<script type="text/javascript" src="../js/vis.min.js"></script>
+<script type="text/javascript" src="../js/bnbrowser.js"></script>
+<script type="text/javascript" src="../js/bngen.js"></script>
+<script type="text/javascript" src="../js/bn6draw.js"></script>
+<script type="text/javascript" src="../js/bnviz.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+R.bnbrowser.init($("#bnbrowser"), 'bnviz');
+//$('h2').next().hide();
+});
+$('h2').click(function(e)
+{
+$(e.target).next().slideToggle();
+});
+</script>
+
+<h3>Generated on Sun May  7 23:15:24 CEST 2023</h3>
+</body>
+</html>
