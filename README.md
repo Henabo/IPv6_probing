@@ -33,7 +33,7 @@ to install ZMapv6, do:
    zmap --version
    zmap --help | grep IPv6
    ```
-to scan a list of IPv6 addresses with zmap:  
+   to scan a list of IPv6 addresses with zmap:  
 1. go to sub-dir: ```zmap_scan```
 2. get local IPv6 info :IPv6 address and gateway MAC.
 3. fill IPv6 address and gateway MAC in zmap_scan_once.sh:  
@@ -64,15 +64,16 @@ to execute the operation, perform the following processes:
     1. ipv6_retrieval.py will be executed downloading and storing in the working directory ipv6 hitlist called responsive_ipv6_addresses.txt
     2. ipv6_identify_prefixes.py will iterate the hitlist, remove aliased addresses in /64 prefix and generate 1 pseudo-random address for each 4-bit /68 subprefix storing the output in a list and file called aliased_ipv6_addresses.txt
 
-## 2. Scan IPv6 addresses and de-aliasing - MISSING
+## 2. Scan IPv6 addresses and de-aliasing
 @zhang12574  
-1. the file aliased_ipv6_addresses.txt contains a list structured of 1 original address and 16 aliases every 17 lines. Zmpav6 will send 16 packets to aliases addresses (pseudo-random addresses within generated addresses in IPv6 prefix) using TCP/80 and ICMPv6 enforcing traversal of a subprefix with different nybbles. SUDO permissions required for Linux kernel
-2. responsive addresses are counted. If we obtain responses from all 16, we label the prefix as aliased and remove it. If not, we write the original address (line 1) in a file called dealiased_ipv6_addresses.txt
-3. further instructions...
+1. the file aliased_ipv6_addresses.txt contains a list structured of 1 original address and 16 aliases every 17 lines. Zmpav6 will send 16 packets to aliased addresses (pseudo-random addresses within generated addresses in IPv6 prefix) using TCP/80 and ICMPv6 enforcing traversal of a subprefix with different nybbles. SUDO permissions required for Linux kernel
+2. responsive addresses are counted. If we obtain responses from all 16 (either TCP/80 or ICMPv6 is ok) , we label the prefix as aliased and remove it. If not, we write the original address (line 1) in a file called dealiased_ipv6_addresses.txt
+3. `./dealiase_addresses.sh` will do the previous two jobs, and it is included and called also in `./retrieve_addresses.sh`
 
 ## 3. Generate new IPv6 Addresses using entropy-ip
 @DressPD
 open a bash terminal in a folder containing this repository (locally or via ssh)
+
 2. run ```chmod +x generate_addresses.sh``` to allow execution of customs bash files
 3. execute ```./generate_addresses.sh``` that will provide the folllowing tasks: 
    1. ipv6_transform.py will prepare dealiased_ipv6_addresses.txt IPv6 list in hex IP format (32 hex characters per line, no colons)
