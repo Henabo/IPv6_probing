@@ -1,7 +1,7 @@
 import ipaddress
 
 # read input file
-with open('responsive_ipv6_addresses.txt', 'r') as f:
+with open('./ipv6_hitlists/responsive_ipv6_addresses.txt', 'r') as f:
     # Skip first line
     next(f)
     #for line in f:

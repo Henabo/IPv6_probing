@@ -4,7 +4,7 @@ import lzma
 
 #define import url and filename
 url = 'https://alcatraz.net.in.tum.de/ipv6-hitlist-service/open/responsive-addresses.txt.xz'
-filename = 'responsive_ipv6_addresses.txt.xz'
+filename = './ipv6_hitlists/responsive_ipv6_addresses.txt.xz'
 
 #use request library to download file
 response = requests.get(url, stream=True)
@@ -18,5 +18,5 @@ with lzma.open(filename) as f:
     uncompressed_content = f.read().decode('utf-8')
 
 #save it in current working directory
-with open('responsive_ipv6_addresses.txt', 'w') as f:
+with open('./ipv6_hitlists/responsive_ipv6_addresses.txt', 'w') as f:
     f.write(uncompressed_content)

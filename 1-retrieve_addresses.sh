@@ -8,5 +8,4 @@ python ./ipv6_retrieval/ipv6_retrieval.py
 python ./ipv6_retrieval/ipv6_identify_prefixes.py
 
 # run zmapv6 scan in order to select de-aliased IPv6 addresses and store them
-bash dealiase_addresses.sh
-# WIP
+#bash ./2-dealiase_addresses.sh
