@@ -44,7 +44,7 @@ def aliase_removal(addrs, hits_1, hits_2):
 
 if __name__ == '__main__':
     # Open the input file and read the lines
-    with open('aliased_ipv6_addresses.txt', 'r') as f_a, open('aliased_scan_res_icmp.csv', 'r') as f_icmp, open('aliased_scan_res_tcp.csv', 'r') as f_tcp, open('dealiased_ipv6_addresses.txt', 'w') as o:
+    with open('./ipv6_hitlists/aliased_ipv6_addresses.txt', 'r') as f_a, open('./ipv6_hitlists/aliased_scan_res_icmp.csv', 'r') as f_icmp, open('./ipv6_hitlists/aliased_scan_res_tcp.csv', 'r') as f_tcp, open('./ipv6_hitlists/dealiased_ipv6_addresses.txt', 'w') as o:
         # Skip first line
         next(f_icmp)
         next(f_tcp)

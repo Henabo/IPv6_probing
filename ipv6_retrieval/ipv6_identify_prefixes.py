@@ -52,7 +52,7 @@ def generate_aliases_parallel(addresses):
 if __name__ == '__main__':
     #freeze_support()
     # Open the input file and read the lines
-    with open('responsive_ipv6_addresses.txt', 'r') as f, open('aliased_ipv6_addresses.txt', 'w') as o:
+    with open('./ipv6_hitlists/responsive_ipv6_addresses.txt', 'r') as f, open('./ipv6_hitlists/aliased_ipv6_addresses.txt', 'w') as o:
         # Skip first line
         next(f)
         lines = f.readlines()[:20000] # to be removed when server is given
