@@ -1,0 +1,3 @@
+active address overlapping rate:
+two adjacent days: about 84% are overlapped
+all seven days: about 70% are overlapped
