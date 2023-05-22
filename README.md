@@ -61,9 +61,10 @@ to install eip-generator:
 2. run ```sudo apt-get install golang-go``` to install GO if not available
 3. build the program with ```make \ go build -o eip-generator eip-generator.go lib.go```
 to run eip-generator for addresses creation:
-1. run ```./eip-convert.py ipv6_model/segments ipv6_model/analysis ipv6_model/cpd > ipv6_model/eip.model``` to translate the model
+1. run ```./eip-convert.py ../ipv6_model/segments ../ipv6_model/analysis ../ipv6_model/cpd > ../ipv6_model/eip.model``` to translate the model
 2. Change working directory to newly generated repository and activate py2_env
-3. Run ```./eip-generator -N 100000 < ipv6_model/eip.model > generated_ipv6_addresses.txt``` to generato 100k new addresses
+3. Run ```./eip-generator -M 100000 -N 8000000 < ../ipv6_model/eip.model > generated_ipv6_addresses.txt``` to generato 100k new addresses
+4. Run ```python3 ipv6_de_transform.py > ../ipv6_hitlists/generated_ipv6_addresses.txt``` to format the addresses
 ```
   -M int -> max. number of addresses per model state (default 1000)
   -N int -> approx. number of addresses to generate (default 1000000)
@@ -107,10 +108,10 @@ to execute the operation, perform the following processes:
    2. ```./eip-generator``` will generate new ipv6 addresses based on the input file
    3. new addresses will be stored in generated_ipv6_addresses.txt
 
-## 4. Scan de-aliased and generated IPv6 addresses for one week - MISSING
+## 4. Scan de-aliased and generated IPv6 addresses for one week
 @zhang12574  
-1. set up daily scanning using Cronjob or equivalent methods
-2. save results in a folder measuring responsiveness
+1. set up daily scanning using Cronjob or equivalent methods - Missing
+2. run `5-scan_all.sh` daily to get the scan result for de-aliased and generated addresses.
 
 ## 5. Daily active IPv6 addresses report and results - MISSING
 @zhang12574

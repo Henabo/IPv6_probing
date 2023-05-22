@@ -15,7 +15,9 @@ def aliase_removal(addrs, hits_1, hits_2):
         gen_addrs = [addrs[ind0+i] for i in range(1, 17)]
         ip = ipaddress.ip_address(ori_addr)
         prefix = ipaddress.ip_network(ip.exploded + '/64', strict=False)
-        assert(prefix not in prefixmap.keys())
+        # assert(prefix not in prefixmap.keys())
+        if (prefix in prefixmap.keys()):
+            continue
         found = [0 for i in range(16)]
         foundcnt = 0
         prefixmap[prefix] = [ori_addr, gen_addrs, found, foundcnt]
