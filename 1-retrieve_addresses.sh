@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # run script to retrieve IPv6 addresses and store in local directory
-#conda activate py3_env && \
+conda activate py3_env && \
 python ./ipv6_retrieval/ipv6_retrieval.py
 
 # run script to identify aliased addresses and create alias using predefine algorithm

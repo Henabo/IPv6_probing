@@ -45,7 +45,7 @@ to install ZMapv6, do:
 note: **DO NOT** run with proxy or vpn on, make sure to kill them ahead.
 
 ## Entropy-ip set up and configuration - READ CAREFULLY
-@DressPD
+@DressPD  
 to set up entropy-ip:
 1. run ```git clone https://github.com/akamai/entropy-ip.git``` in terminal in current reporitory to extract the source code
 2. run ```./create_py2_env.sh``` to set up a conda enviroment with python 2 and necessary packages for entropy-ip (consider pip or atp as alternative solutions)
@@ -55,15 +55,16 @@ to run entropy-ip for addresses modeling:
 3. Run ```./ALL.sh <ips> <target>```, where ```<ips>``` is your dataset file, and ```<target>``` is the output directory for storing the results
 
 ## eip-generator set up and configuration - READ CAREFULLY
-@DressPD
+@DressPD  
 to install eip-generator:
 1. run ```https://github.com/pforemski/eip-generator``` in terminal in current reporitory to extract the source code
 2. run ```sudo apt-get install golang-go``` to install GO if not available
 3. build the program with ```make \ go build -o eip-generator eip-generator.go lib.go```
 to run eip-generator for addresses creation:
-1. run ```./eip-convert.py ipv6_model/segments ipv6_model/analysis ipv6_model/cpd > ipv6_model/eip.model``` to translate the model
+1. run ```./eip-convert.py ../ipv6_model/segments ../ipv6_model/analysis ../ipv6_model/cpd > ../ipv6_model/eip.model``` to translate the model
 2. Change working directory to newly generated repository and activate py2_env
-3. Run ```./eip-generator -N 100000 < ipv6_model/eip.model > generated_ipv6_addresses.txt``` to generato 100k new addresses
+3. Run ```./eip-generator -M 100000 -N 8000000 < ../ipv6_model/eip.model > generated_ipv6_addresses.txt``` to generato 100k new addresses
+4. Run ```python3 ipv6_de_transform.py > ../ipv6_hitlists/generated_ipv6_addresses.txt``` to format the addresses
 ```
   -M int -> max. number of addresses per model state (default 1000)
   -N int -> approx. number of addresses to generate (default 1000000)
@@ -92,7 +93,7 @@ to execute the operation, perform the following processes:
 
 
 ## 3. Model IPv6 Addresses using entropy-ip
-@DressPD
+@DressPD  
 1. open a bash terminal in a folder containing this repository (locally or via ssh)
 2. run ```chmod +x 3-model_addresses.sh``` to allow execution of customs bash files
 3. execute ```./3-model_addresses.sh``` that will provide the folllowing tasks: 
@@ -101,20 +102,24 @@ to execute the operation, perform the following processes:
    3. new addresses will be stored in the folder ipv6_model for further analysis
 
 ## 4. Generate new IPv6 Addresses using eip-generator
+@DressPD  
 1. run ```chmod +x 4-generate_addresses.sh``` to allow execution of customs bash files
 2. execute ```./4-generate_addresses.sh``` that will provide the folllowing tasks: 
    1. `eip-convert.py` will convert the previous model in readble input to generat addresses
    2. ```./eip-generator``` will generate new ipv6 addresses based on the input file
    3. new addresses will be stored in generated_ipv6_addresses.txt
 
-## 4. Scan de-aliased and generated IPv6 addresses for one week - MISSING
+## 5. Scan de-aliased and generated IPv6 addresses for one week
 @zhang12574  
-1. set up daily scanning using Cronjob or equivalent methods
-2. save results in a folder measuring responsiveness
+1. run ```chmod +x 5-scan_all.sh``` to allow execution of customs bash files
+2. run `5-scan_all.sh` daily to get the scan result for de-aliased and generated addresses and produce reports in dedicate folder
+3. it was not possible for us to set up daily scanning using Cronjob or equivalent methods, but it would have been a cool strategy to partially automate the process
 
-## 5. Daily active IPv6 addresses report and results - MISSING
+## 6. Daily active IPv6 addresses report and results
 @zhang12574
-1. plot results and analysis (using python script or BI tool)
-2. produce instructions and interpretation of results
-
-_server new password: `fiagroup4`_
+1. Once the 7 daily reports are available and stored in the target folder
+1. run ```chmod +x 6-analysis.sh``` to allow execution of customs bash files
+2. run `6-analysis.sh`  
+   1. `result_aggregate.py` will aggregate the results in numerical format from the responses collected
+   2. `plotting.py` will iterate the named files and produce a line chart showing the hit ratio per day in the reports folder
+   3. Remember to check the files to adjust hard-coded paramaters as hitlists size and files name
