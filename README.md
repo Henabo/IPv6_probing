@@ -1,5 +1,5 @@
 # IPv6_probing
-Repository to check existence of IPv6 address and check validity avoiding aliases
+Repository to check existence and map IPv6 addressed and check respondse tates while avoiding aliases
 
 # Prerequisites
 ## python environments - READ CAREFULLY
@@ -48,7 +48,7 @@ note: **DO NOT** run with proxy or vpn on, make sure to kill them ahead.
 @DressPD  
 to set up entropy-ip:
 1. run ```git clone https://github.com/akamai/entropy-ip.git``` in terminal in current reporitory to extract the source code
-2. run ```./create_py2_env.sh``` to set up a conda enviroment with python 2 and necessary packages for entropy-ip (consider pip or atp as alternative solutions)
+2. read and execute ```0-create_py_envs.txt``` to set up a conda enviroment with python 2 and necessary packages for entropy-ip (consider pip or atp as alternative solutions)
 to run entropy-ip for addresses modeling:
 1. Prepare your IPv6 dataset in hex IP format (32 hex characters per line, no colons)
 2. Change working directory to newly generated repository and activate py2_env
@@ -112,14 +112,14 @@ to execute the operation, perform the following processes:
 ## 5. Scan de-aliased and generated IPv6 addresses for one week
 @zhang12574  
 1. run ```chmod +x 5-scan_all.sh``` to allow execution of customs bash files
-2. run `5-scan_all.sh` daily to get the scan result for de-aliased and generated addresses and produce reports in dedicate folder
+2. run `./5-scan_all.sh` daily to get the scan result for de-aliased and generated addresses and produce reports in dedicate folder
 3. it was not possible for us to set up daily scanning using Cronjob or equivalent methods, but it would have been a cool strategy to partially automate the process
 
 ## 6. Daily active IPv6 addresses report and results
 @zhang12574
 1. Once the 7 daily reports are available and stored in the target folder
 1. run ```chmod +x 6-analysis.sh``` to allow execution of customs bash files
-2. run `6-analysis.sh`  
+2. run `./6-analysis.sh`  
    1. `result_aggregate.py` will aggregate the results in numerical format from the responses collected
    2. `plotting.py` will iterate the named files and produce a line chart showing the hit ratio per day in the reports folder
    3. Remember to check the files to adjust hard-coded paramaters as hitlists size and files name
