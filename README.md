@@ -113,9 +113,7 @@ to execute the operation, perform the following processes:
 1. set up daily scanning using Cronjob or equivalent methods - Missing
 2. run `5-scan_all.sh` daily to get the scan result for de-aliased and generated addresses.
 
-## 5. Daily active IPv6 addresses report and results - MISSING
+## 5. Daily active IPv6 addresses report and results
 @zhang12574
 1. plot results and analysis (using python script or BI tool)
 2. produce instructions and interpretation of results
-
-_server new password: `fiagroup4`_
