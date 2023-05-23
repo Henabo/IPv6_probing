@@ -5,25 +5,25 @@ output_dir = "active_iplists"
 
 type_list = ["generated", "dealiased"]
 protocol_list = ["icmp", "tcp"]
-date_range = range(16 ,23)
+date_cnt = 7
 
 dealiased_cnt = 3286446
 generated_cnt = 474209368
 
 active_lists = []
-for i, d in enumerate(date_range):
+for d in range(date_cnt):
     active_lists.append(set())
     for p in protocol_list:
         for t in type_list:
-            path = t + "_scan_res_" + p + "_05" + str(d) + ".csv"
+            path = t + "_scan_res_" + p + "_" + str(d) + ".csv"
             f = open(os.path.join(res_dir, path))
             next(f)
             lines = f.readlines()
             for l in lines:
-                active_lists[i].add(l)
-    fo = open(os.path.join(output_dir, "active_ipv6_addresses_05" + str(d) + ".txt"), 'w')
+                active_lists[d].add(l)
+    fo = open(os.path.join(output_dir, "active_ipv6_addresses_" + str(d) + ".txt"), 'w')
     print("05"+str(d)+":", len(active_lists[i]))
-    for l in active_lists[i]:
+    for l in active_lists[d]:
         fo.write(l)
 
 common = active_lists[0]
