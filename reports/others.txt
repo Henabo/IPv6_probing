@@ -1,3 +1,8 @@
 active address overlapping rate:
 two adjacent days: about 84% are overlapped
 all seven days: about 70% are overlapped
+
+active address count:
+dealiased: 2.88 M
+generated: 5.79 M
+in total: 8.67 M
