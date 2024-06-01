@@ -1,8 +1,10 @@
 # IPv6_probing
 Repository to check existence and map IPv6 addressed and check respondse tates while avoiding aliases
 
-# Prerequisites
-## python environments - READ CAREFULLY
+存储库检查存在和映射IPv6地址，并检查响应状态，同时避免别名
+
+# Prerequisites 准备环境
+## python environments - READ CAREFULLY，Python环境
 @DressPD 
 * local installation of python 3.8+, 2.7 and Linux terminal (bash, zsh also via WSL) with valid connetivity and SUDO option available
 * install package manager (conda, pip or apt) with the following virtual environments: py2_env, py3_env
@@ -75,7 +77,9 @@ to run eip-generator for addresses creation:
 ```
 
 # Instructions to run the experiment
+# 运行试验的说明
 ## 1. IPv6 retrieval and aliasing
+## IPv6检索和别名
 @DressPD  
 to execute the operation, perform the following processes:
 1. open a bash terminal in a folder containing this repository (locally or via ssh)
@@ -85,9 +89,12 @@ to execute the operation, perform the following processes:
     2. `ipv6_identify_prefixes.py` will iterate the hitlist, remove aliased addresses in /64 prefix and generate 1 pseudo-random address for each 4-bit /68 subprefix storing the output in a list and file called aliased_ipv6_addresses.txt
 
 ## 2. Scan IPv6 addresses and de-aliasing
+## IPv6地址去别名
 @zhang12574  
 1. the file aliased_ipv6_addresses.txt contains a list structured of 1 original address and 16 aliases every 17 lines. Zmpav6 will send 16 packets to aliased addresses (pseudo-random addresses within generated addresses in IPv6 prefix) using TCP/80 and ICMPv6 enforcing traversal of a subprefix with different nybbles. SUDO permissions required for Linux kernel
+文件aliased_ipv6_address .txt包含一个由1个原始地址和16个别名组成的列表，每17行。Zmpav6将发送16个数据包到别名地址(在IPv6前缀中生成地址中的伪随机地址)，使用TCP/80和ICMPv6强制遍历具有不同nybbles的子前缀。Linux内核所需的SUDO权限
 2. responsive addresses are counted. If we obtain responses from all 16 (either TCP/80 or ICMPv6 is ok) , we label the prefix as aliased and remove it. If not, we write the original address (line 1) in a file called dealiased_ipv6_addresses.txt
+响应地址被计数。如果我们从所有16个(TCP/80或ICMPv6都可以)获得响应，我们将前缀标记为别名并删除它。如果不是，我们将原始地址(第1行)写入名为dealiased_ipv6_addresses.txt的文件中
 3. ```chmod +x dealiase_addresses.sh``` to allow execution of customs bash files
 4. `./2-dealiase_addresses.sh` will do the previous two jobs, and it is included and called also in `./1-retrieve_addresses.sh`
 
