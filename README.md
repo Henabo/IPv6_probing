@@ -11,6 +11,7 @@ Repository to check existence and map IPv6 addressed and check respondse tates w
 * as defined in create_py_envs.txt
 * docker images and containers could have been considered to deploy and manage dependencies with larger time
 ## Zmap Scanner set up and configuration - READ CAREFULLY
+## Zmap安装配置
 @zhang12574  
 to install ZMapv6, do:
 1. make sure to install all the dependencies of ZMap  
@@ -47,6 +48,7 @@ to install ZMapv6, do:
 note: **DO NOT** run with proxy or vpn on, make sure to kill them ahead.
 
 ## Entropy-ip set up and configuration - READ CAREFULLY
+## Entropy-ip方法安装和配置
 @DressPD  
 to set up entropy-ip:
 1. run ```git clone https://github.com/akamai/entropy-ip.git``` in terminal in current reporitory to extract the source code
@@ -100,13 +102,17 @@ to execute the operation, perform the following processes:
 
 
 ## 3. Model IPv6 Addresses using entropy-ip
+## 3. 使用熵-ip模型IPv6地址
 @DressPD  
 1. open a bash terminal in a folder containing this repository (locally or via ssh)
 2. run ```chmod +x 3-model_addresses.sh``` to allow execution of customs bash files
 3. execute ```./3-model_addresses.sh``` that will provide the folllowing tasks: 
    1. `ipv6_transform.py` will prepare dealiased_ipv6_addresses.txt IPv6 list in hex IP format (32 hex characters per line, no colons)
+   将准备十六进制IP格式的dealiased_ipv6_address .txt IPv6列表(每行32个十六进制字符，无冒号)
    2. ```./ALL.sh <ips> <target>``` will generate new ipv6 model based on the input hitlist
+   会根据输入列表生成新的ipv6模型
    3. new addresses will be stored in the folder ipv6_model for further analysis
+   新地址将存储在文件夹ipv6_model中，以便进一步分析
 
 ## 4. Generate new IPv6 Addresses using eip-generator
 @DressPD  

@@ -1,6 +1,7 @@
 import ipaddress
 
 # read input file
+# 将去除别别名的地址转换为无冒号的32位地址
 with open('./ipv6_hitlists/dealiased_ipv6_addresses.txt', 'r') as f:
     # Skip first line
     # next(f)
