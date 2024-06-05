@@ -1,7 +1,9 @@
 import os
 import matplotlib.pyplot as plt
 
-res_dir = "scan_results"
+# res_dir = "scan_results"
+res_dir = "ipv6_hitlists"
+
 output_dir = "active_iplists"
 
 type_list = ["generated", "dealiased"]
@@ -17,7 +19,8 @@ for i, d in enumerate(date_range):
     for t in type_list:
         active_list = set()
         for p in protocol_list:
-            path = t + "_scan_res_" + p + "_05" + str(d) + ".csv"
+            # path = t + "_scan_res_" + p + "_05" + str(d) + ".csv"
+            path = t + "_scan_res_" + p + ".csv"
             f = open(os.path.join(res_dir, path))
             next(f)
             lines = f.readlines()

@@ -67,6 +67,8 @@ to install eip-generator:
 to run eip-generator for addresses creation:
 1. run ```./eip-convert.py ../ipv6_model/segments ../ipv6_model/analysis ../ipv6_model/cpd > ../ipv6_model/eip.model``` to translate the model
 2. Change working directory to newly generated repository and activate py2_env
+将工作目录更改为新生成的存储库并激活py2_env
+
 3. Run ```./eip-generator -M 100000 -N 8000000 < ../ipv6_model/eip.model > generated_ipv6_addresses.txt``` to generato 100k new addresses
 4. Run ```python3 ipv6_de_transform.py > ../ipv6_hitlists/generated_ipv6_addresses.txt``` to format the addresses
 ```

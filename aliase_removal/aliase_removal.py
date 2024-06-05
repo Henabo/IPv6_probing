@@ -46,7 +46,7 @@ def aliase_removal(addrs, hits_1, hits_2):
     # 检查每个前缀的响应计数，如果响应计数小于16（即不是所有生成地址都有响应），则将原始地址添加到结果列表result中。
     for k in prefixmap.keys():
         # if prefixmap[k][3] < 16: # 改为15，因为有可能存在丢包的情况
-        if prefixmap[k][3] < 8: 
+        if prefixmap[k][3] < 10: 
             result.append(prefixmap[k][0])
     return result
 

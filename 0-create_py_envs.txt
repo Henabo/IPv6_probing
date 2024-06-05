@@ -28,7 +28,7 @@ conda install -c anaconda numpy matplotlib scikit-learn
 conda install -c bioconda toposort
 pip install bnfinder --no-cache-dir
 # deactivate environment
-#conda deactivate
+# conda deactivate
 # remove temporary environment
-#conda remove --name py2_env --all
+# conda remove --name py2_env --all
 # read https://stackoverflow.com/questions/65130080/attributeerror-running-django-site-on-mac-11-0-1 for mac OS with Conda debugging
